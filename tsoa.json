@@ -1,0 +1,26 @@
+{
+    "entryFile": "src/index.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "spec": {
+      "outputDirectory": "public/swagger",
+      "specVersion": 3,
+      "description": "Ico Client Panel apis",
+      "version": "1.0.0",
+      "license": "license",
+      "specMerging": "recursive",
+      "securityDefinitions": {
+        "Bearer": {
+          "type": "apiKey",
+          "name": "Authorization",
+          "in": "header",
+          "description": "JWT Authorization header using the Bearer scheme."
+        }
+      }
+    },
+    "routes": {
+      "routesDir": "build"
+    },
+    "controllerPathGlobs": [
+      "./src/controller/**/*.ts"
+    ]
+  }
