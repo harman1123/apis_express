@@ -13,3 +13,10 @@
 2023-08-18T09:33:38.056Z [31merror[39m: ::1 Password seems to be incorrect
 2023-08-18T11:12:40.772Z [31merror[39m: ::1 Cast to ObjectId failed for value "0" (type number) at path "_id" for model "user"
 2023-08-19T05:11:56.765Z [31merror[39m: ::1 Cannot do exclusion on field _id in inclusion projection
+2023-08-19T09:04:22.312Z [31merror[39m: ::1 "email" must be a valid email
+2023-08-19T09:07:37.544Z [31merror[39m: ::1 "email" is required
+2023-08-19T09:07:52.819Z [31merror[39m: ::1 "email" is required
+2023-08-19T09:08:22.955Z [31merror[39m: ::1 "email" is required
+2023-08-19T09:50:50.944Z [31merror[39m: ::1 "email" must be a valid email
+2023-08-19T11:27:44.462Z [31merror[39m: ::1 alert is not defined
+2023-08-19T12:00:44.177Z [31merror[39m: ::1 Missing credentials for "PLAIN"

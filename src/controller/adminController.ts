@@ -51,7 +51,7 @@ export default class AdminController extends Controller {
             }
             const token = await signToken(exists._id)
             delete exists.password
-            console.log("token");
+            console.log(token);
 
             return {
                 data: { ...exists, token },
@@ -192,7 +192,7 @@ export default class AdminController extends Controller {
     public async changePassword(@Body() request: { oldPassword: string, newPassword: string }): Promise<IResponse> {
         try {
             const { oldPassword, newPassword } = request;
-            const validatedChangePassword = validateChangePassword({ oldPassword, newPassword });;
+            const validatedChangePassword = validateChangePassword({ oldPassword, newPassword });
             if (validatedChangePassword.error) {
                 throw new Error(validatedChangePassword.error.message)
             }
@@ -318,11 +318,15 @@ export default class AdminController extends Controller {
             //  const user = "fghfh";
             // const projection = { firstName: 1, email: 1, _id: 0 }; 
             // const users = await userModel.find({},projection);
-            const users = await userModel.find({},  {_id: 1 } );
-        //   var test=  obj.id = obj._id;
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // true and 0 = not showing fields in projection
+            // false and 1 for only displaying mentioned field
+            const users = await userModel.find();
+          
             console.log(users);
+      
             return {
-                //    data: {users,user},
+                //    data: {users,user},   
                 data: users || {},
                 error: "",
                 message: "all users displayed successfully ",
@@ -338,7 +342,7 @@ export default class AdminController extends Controller {
             };
         }
     }
-   
+
 }
 
 
