@@ -78,7 +78,7 @@ router.post('/update', authenticate, async (req: Request | any, res: Response) =
 })
 router.get('/allusers', async (req:Request | any, res:Response) =>{
     const controller = new AdminController(req,res)
-    console.log("ffdbgd");
+    // console.log("ffdbgd");
     const response = await controller.getallusers()
     const {status} = response;
     return responseWithStatus(res,status, response)
