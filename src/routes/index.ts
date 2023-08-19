@@ -14,21 +14,5 @@ for (const property in user) {
   Route.use('/user', user[property]);
 }
 
-// for (const property in client) {
-//   Route.use('/client', client[property]);
-// }
 
-
-// for (const property in subscription) {
-//   Route.use('/subscription-plan', subscription[property]);
-// }
-
-// for (const property in features) {
-//   Route.use('/feature', features[property]);
-// } 
-
-
-// for (const property in featureTypes) {
-//   Route.use('/feature-type', featureTypes[property]);
-// } 
 export default Route;

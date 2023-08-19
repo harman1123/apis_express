@@ -311,32 +311,34 @@ export default class AdminController extends Controller {
     * get all users 
     */
 
- @Security("Bearer")
- @Get("/allusers")
- public async getallusers(): Promise<IResponse> {
-   try {
-    //  const user = "fghfh";
-    // const projection = { firstName: 1, email: 1, _id: 0 }; 
-    // const users = await userModel.find({},projection);
-    const users = await userModel.find({},{email: 1,_id:0});
-     console.log(users);
-     return {
-    //    data: {users,user},
-    data : users || {},
-       error: "",
-       message: "all users displayed successfully ",
-       status: 200,
-     };
-   } catch (err: any) {
-     logger.error(`${this.req.ip} ${err.message}`);
-     return {
-       data: null,
-       error: err.message ? err.message : err,
-       message: "",
-       status: 400,
-     };
-   }
- }
+    @Security("Bearer")
+    @Get("/allusers")
+    public async getallusers(): Promise<IResponse> {
+        try {
+            //  const user = "fghfh";
+            // const projection = { firstName: 1, email: 1, _id: 0 }; 
+            // const users = await userModel.find({},projection);
+            const users = await userModel.find({},  {_id: 1 } );
+        //   var test=  obj.id = obj._id;
+            console.log(users);
+            return {
+                //    data: {users,user},
+                data: users || {},
+                error: "",
+                message: "all users displayed successfully ",
+                status: 200,
+            };
+        } catch (err: any) {
+            logger.error(`${this.req.ip} ${err.message}`);
+            return {
+                data: null,
+                error: err.message ? err.message : err,
+                message: "",
+                status: 400,
+            };
+        }
+    }
+   
 }
 
 
