@@ -40,12 +40,12 @@
 	"info": {
 		"title": "express_api_h",
 		"version": "1.0.0",
-		"description": "Ico Client Panel apis",
+		"description": "apis",
 		"license": {
 			"name": "license"
 		},
 		"contact": {
-			"name": "arjun"
+			"name": "none"
 		}
 	},
 	"openapi": "3.0.0",

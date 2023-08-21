@@ -4,7 +4,7 @@
     "spec": {
       "outputDirectory": "public/swagger",
       "specVersion": 3,
-      "description": "Ico Client Panel apis",
+      "description": "apis",
       "version": "1.0.0",
       "license": "license",
       "specMerging": "recursive",

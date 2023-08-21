@@ -5,7 +5,7 @@ mongoose
     dbName: process.env.DBNAME,
     // useNewUrlParser: true,
   })
-  .then(() => {/* console.log("Mongodb connected to " + process.env.MONGODB_URI) */})
+  .then(() => {})
   .catch((err: any) => console.log(err));
 
 mongoose.connection.on("connected", function () {

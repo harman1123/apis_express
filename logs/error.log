@@ -20,3 +20,17 @@
 2023-08-19T09:50:50.944Z [31merror[39m: ::1 "email" must be a valid email
 2023-08-19T11:27:44.462Z [31merror[39m: ::1 alert is not defined
 2023-08-19T12:00:44.177Z [31merror[39m: ::1 Missing credentials for "PLAIN"
+2023-08-21T05:57:47.574Z [31merror[39m: ::1 Invalid User
+2023-08-21T05:58:23.441Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials h9-20020a170902748900b001ac7f583f72sm6057637pll.209 - gsmtp
+2023-08-21T05:58:46.313Z [31merror[39m: ::1 "email" must be a valid email
+2023-08-21T05:59:54.676Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials j24-20020aa79298000000b0068a077847c7sm3730190pfa.135 - gsmtp
+2023-08-21T06:01:09.174Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials x13-20020a170902ec8d00b001b87d3e845bsm6093378plg.149 - gsmtp
+2023-08-21T06:02:40.928Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials f1-20020a170902ce8100b001b801044466sm6131568plg.114 - gsmtp
+2023-08-21T06:03:58.104Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a6-20020a170902ecc600b0019ee045a2b3sm6072197plh.308 - gsmtp
+2023-08-21T06:04:49.853Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials y26-20020aa7855a000000b00682af93093dsm1678560pfn.45 - gsmtp
