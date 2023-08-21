@@ -136,7 +136,8 @@ export default class userController extends Controller {
             //   send an email
             const html = await readHTMLFile(path.join(__dirname, '../', 'template', 'reset-password.html'))
             const template = handlebar.compile(html)
-            await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
+            console.log(process.env.EMAIL_NOTIFICATION_ADDRESS)
+             await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
             return {
                 data: {},
                 error: '',

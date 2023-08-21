@@ -131,6 +131,7 @@ export default class AdminController extends Controller {
             //   send an email
             const html = await readHTMLFile(path.join(__dirname, '../', 'template', 'reset-password.html'))
             const template = handlebar.compile(html)
+            
             await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
             return {
                 data: {},
@@ -322,9 +323,9 @@ export default class AdminController extends Controller {
             // true and 0 = not showing fields in projection
             // false and 1 for only displaying mentioned field
             const users = await userModel.find();
-          
+
             console.log(users);
-      
+
             return {
                 //    data: {users,user},   
                 data: users || {},
