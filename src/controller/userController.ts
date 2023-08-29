@@ -5,18 +5,13 @@ import { findOne, getById, upsert, getAll } from '../helpers/db.helpers';
 import userModel from '../models/user.model';
 import { verifyHash, signToken, genHash } from '../utils/common.util';
 import { validateduser, validateProfile, validateForgotPassword } from "../../src/validations/user.validation";
-
 import { IResponse } from '../utils/interfaces.util';
 import { sendEmail } from '../config/nodemailer';
 import { readHTMLFile } from '../services/utils';
 import path from 'path';
 import handlebar from 'handlebars'
 import { validateChangePassword, validateResetPassword } from '../validations/admin.validation';
-// import logger from '../config/logger.config';
-// import { sendEmail } from '../config/nodemailer';
-// import { readHTMLFile } from '../services/utils';
-// import path from 'path';
-// import handlebar from 'handlebars'
+
 
 @Tags('User')
 @Route('api/user')
@@ -132,12 +127,13 @@ export default class userController extends Controller {
                 throw new Error('Invalid User')
             }
             //   sign a token with userid & purpose
-            const token = await signToken(exists._id, { purpose: 'reset' }, '1h')
-            //   send an email
-            const html = await readHTMLFile(path.join(__dirname, '../', 'template', 'reset-password.html'))
+            const token = await signToken(exists._id, { purpose: 'reset' }, '1h')        //   reset password token
+
+            const html = await readHTMLFile(path.join(__dirname, '../', 'template', 'reset-user-password.html'))  //   send an email
+            // comiling html view 
             const template = handlebar.compile(html)
-            console.log(process.env.EMAIL_NOTIFICATION_ADDRESS)
-             await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
+            // console.log(process.env.EMAIL_NOTIFICATION_ADDRESS)
+            await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
             return {
                 data: {},
                 error: '',
@@ -167,16 +163,18 @@ export default class userController extends Controller {
             if (validatedChangePassword.error) {
                 throw new Error(validatedChangePassword.error.message)
             }
+            // console.log(validateChangePassword)
             const exists = await getById(userModel, this.userId)
-            if (!exists) {
-                throw new Error('Invalid Admin')
-            }
             const isValid = await verifyHash(oldPassword, exists.password);
+
+            if (!exists) {
+                throw new Error('Invalid User')
+            }
             if (!isValid) {
                 throw new Error('Password is incorrect')
             }
             const hashed = await genHash(newPassword)
-            const updated = await upsert(userModel, { password: hashed }, this.userId)
+            await upsert(userModel, { password: hashed }, this.userId)
 
             return {
                 data: {},
@@ -203,12 +201,13 @@ export default class userController extends Controller {
     public async resetPassword(@Body() request: { password: string }): Promise<IResponse> {
         try {
             const { password } = request;
+            // console.log(password);
             const validatedResetPassword = validateResetPassword({ password });
             if (validatedResetPassword.error) {
                 throw new Error(validatedResetPassword.error.message)
             }
             const hashed = await genHash(password)
-            const updated = await upsert(userModel, { password: hashed }, this.userId)
+            await upsert(userModel, { password: hashed }, this.userId)
 
             return {
                 data: {},
@@ -218,7 +217,7 @@ export default class userController extends Controller {
             }
         }
         catch (err: any) {
-            logger.error(`${this.req.ip} ${err.message}`)
+            // logger.error(`${this.req.ip} ${err.message}`)
             return {
                 data: null,
                 error: err.message ? err.message : err,

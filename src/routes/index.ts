@@ -2,10 +2,6 @@ import express from 'express';
 const Route = express.Router();
 const admin = require('./admin');
 const user = require('./user');
-// const subscription = require('./subscription');
-// const features = require('./feature');
-// const featureTypes = require('./feature-type');
-// const client = require('./client');
 
 for (const property in admin) {
   Route.use('/admin', admin[property]);

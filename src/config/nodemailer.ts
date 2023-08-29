@@ -8,7 +8,7 @@ const config = () => {
         secure: true,
         service: 'gmail',
         auth: {
-              // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+            // TODO: replace `user` and `pass` values from <https://forwardemail.net>
             user: process.env.GMAIL_EMAIL || '',
             pass: process.env.GMAIL_PASSWORD || '',
         }

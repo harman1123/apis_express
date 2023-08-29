@@ -34,3 +34,4 @@
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials a6-20020a170902ecc600b0019ee045a2b3sm6072197plh.308 - gsmtp
 2023-08-21T06:04:49.853Z [31merror[39m: ::1 Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
 535 5.7.8  https://support.google.com/mail/?p=BadCredentials y26-20020aa7855a000000b00682af93093dsm1678560pfn.45 - gsmtp
+2023-08-23T06:26:14.183Z [31merror[39m: ::1 Parameter "filter" to find() must be an object, got true

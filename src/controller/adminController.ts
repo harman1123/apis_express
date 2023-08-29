@@ -131,7 +131,7 @@ export default class AdminController extends Controller {
             //   send an email
             const html = await readHTMLFile(path.join(__dirname, '../', 'template', 'reset-password.html'))
             const template = handlebar.compile(html)
-            
+
             await sendEmail(process.env.EMAIL_NOTIFICATION_ADDRESS, 'Reset Your Password', email, template({ link: `${process.env.FRONTEND_HOST}reset-password?resetId=${token}` }))
             return {
                 data: {},
@@ -207,7 +207,7 @@ export default class AdminController extends Controller {
             }
             const hashed = await genHash(newPassword)
             const updated = await upsert(adminModel, { password: hashed }, this.userId)
-
+      
             return {
                 data: {},
                 error: '',
@@ -290,7 +290,7 @@ export default class AdminController extends Controller {
             console.log(payload);
 
             const saveResponse = await upsert(adminModel, payload, this.userId)
-            // create a temp token
+            // create a temp token              
             return {
                 data: saveResponse,
                 error: '',
@@ -316,19 +316,22 @@ export default class AdminController extends Controller {
     @Get("/allusers")
     public async getallusers(): Promise<IResponse> {
         try {
-            //  const user = "fghfh";
+            console.log("first")
+
             // const projection = { firstName: 1, email: 1, _id: 0 }; 
-            // const users = await userModel.find({},projection);
+            // const user = await userModel.find({},projection);
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // true and 0 = not showing fields in projection
             // false and 1 for only displaying mentioned field
-            const users = await userModel.find();
-
-            console.log(users);
-
+            // const users = await userModel.find({}, { password: 0, updatedAt: 0, createdAt: 0 });
+            // const exists = await getById(adminModel, this.userId)
+            const user = await userModel.find({}, { _id: 0 });
+            const count = await userModel.countDocuments()
+            // const user = await userModel.distinct('email')
             return {
-                //    data: {users,user},   
-                data: users || {},
+                //    data: {users,user},    
+                // data: { user, count },
+                data: user || {},
                 error: "",
                 message: "all users displayed successfully ",
                 status: 200,
@@ -338,7 +341,7 @@ export default class AdminController extends Controller {
             return {
                 data: null,
                 error: err.message ? err.message : err,
-                message: "",
+                message: "unable to find user(s)",
                 status: 400,
             };
         }
