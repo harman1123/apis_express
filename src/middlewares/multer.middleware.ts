@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 });
 const fileFilter = function (req: any, file: Express.Multer.File, callback: any) {
     const mime = file.mimetype;
-    
+
     if (!mime.includes('image') && !mime.includes('pdf')) {
         return callback(new Error("Only image or pdf files are allowed"));
     }
@@ -24,6 +24,6 @@ const fileFilter = function (req: any, file: Express.Multer.File, callback: any)
 
 export default multer({
     storage: storage,
-    limits: { fileSize: 5 * 1048576 }, // 5 mb
+    limits: { fileSize: 5 * 1048576 },
     fileFilter
 });

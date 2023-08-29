@@ -24,11 +24,11 @@ export const verifyHash = (password: string, hash: string) => {
 export const convertIdToObjectId = (id: string) => {
     return new Types.ObjectId(id);
 }
+ 
 
-
-export const signToken = async (id: string, extras ={}, expiresIn = '7d') => {
+export const signToken = async (id: string, extras = {}, expiresIn = '7d') => {
     return new Promise((res, rej) => {
-        jwt.sign({id, ...extras}, process.env.SECRET as string, {
+        jwt.sign({ id, ...extras }, process.env.SECRET as string, {
             expiresIn
         }, (err: any, encoded: any) => {
             if (err) {
@@ -45,7 +45,7 @@ export const verifyToken = (token: string) => {
         const decoded = jwt.verify(token, process.env.SECRET as string);
         return decoded;
     }
-    catch(err) {
+    catch (err) {
         return null;
     }
 }

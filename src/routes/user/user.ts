@@ -29,13 +29,12 @@ router.post('/forgotPassword', async (req: Request | any, res: Response) => {
     return responseWithStatus(res, status, response)
 })
 router.post('/resetPassword', authenticate, async (req: Request | any, res: Response) => {
-    // check purpose field
+
     const { purpose } = req.body.user;
     if (!purpose || purpose !== 'reset') {
         return responseWithStatus(res, 400, {
             data: {},
             error: 'Invalid Token',
-            
             message: '',
             status: 400
         })

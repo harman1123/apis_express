@@ -29,3 +29,19 @@ local env files
 .env.test.local
 .env.production.local
 .env
+#bucket-pipeline file
+bitbucket-pipelines.yml
+
+vercel
+.vercel
+.idea
+
+#swagger
+
+/logs/*
+wiredtiger
+/logs
+/data
+
+
+/logs/*
