@@ -1,0 +1,23 @@
+# apis_express
+envoirment variables 
+//////////////////////////////////
+MONGODB_URI = db url
+DBNAME=DB_NAME
+SECRET=SECRET
+PORT=8000
+
+GMAIL_EMAIL=
+GMAIL_PASSWORD=
+EMAIL_PORT=587
+EMAIL_HOST=
+EMAIL_NOTIFICATION_ADDRESS=
+=======
+GMAIL_EMAIL=""
+GMAIL_PASSWORD=
+EMAIL_PORT=465
+EMAIL_HOST=
+FRONTEND_HOST=host_here
+EMAIL_NOTIFICATION_ADDRESS=
+GOD_URL=
+# smtp credetials are wrong 
+
