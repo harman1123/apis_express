@@ -45,3 +45,5 @@ wiredtiger
 
 
 /logs/*
+.env
+.env
